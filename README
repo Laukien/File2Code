@@ -1,0 +1,35 @@
+File2Code
+=========
+Converts a common file into a usable C source-file. All data will be put into an array and is able to use simply.
+
+
+Usage
+-----
+file2code FILE
+
+
+Example
+-------
+You have to bind two objects
+
+by using 'extern':
+	extern unsigned char FILE_data[];
+	extern unsigned long FILE_size;
+
+or by creating a header-file.
+
+The array contains the unchanged data of 'FILE'. So it is not NULL-terminated and you have to to it by yourself.
+	char *file = (char *)malloc(FILE_size + 1);
+	memcpy(file, FILE_data, FILE_size);
+	readme[FILE_size] = '\0';
+
+
+Lizense
+-------
+Simplified BSD License
+
+
+Contact
+-------
+Stephan Laukien <software@laukien.com>
+
